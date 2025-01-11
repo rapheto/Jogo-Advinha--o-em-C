@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-#define TENTATIVAS 3
 int main(){
 
     printf("--------------------\n");
@@ -9,29 +8,32 @@ int main(){
 
     int numeroalt = 42;
     int chute;
-
-    for(int i = 1; i <= TENTATIVAS; i++){
-        printf("\nVoce tem %d/%d tentativas", i, TENTATIVAS);
+    int tentativas = 1;
+    while(1){
+        printf("\nTentativa:%d", tentativas);
         printf("\nDigite um numero: ");
         scanf("%d", &chute);
 
+        if(chute < 0){
+            printf("Voce nao deve chutar numero negativos!\n");
+            continue;
+        }
         //Logica (Bool)
         int acertou = (chute == numeroalt);
         int maior = (chute > numeroalt);
 
         if(acertou){
-            printf("Seu chute foi: %d", chute);
-            printf("\nVoce acertou!!");
+            printf("\nVoce acertou!");
+            printf("\nVoce precisou de %d tentativas!", tentativas);
             break;
         } 
         else if(maior){
-            printf("\nVoce chutou %d, chutou alto", chute);
+            printf("\nVoce chutou %d, chutou alto!", chute);
         } 
         else{
-            printf("\nVoce chutou %d, chutou baixo", chute);
+            printf("\nVoce chutou %d, chutou baixo!", chute);
         }
-        printf("\nFim de Jogo!");
-    }
-    
-    
+        tentativas++;
+    }  
+    printf("\nFim de Jogo!");
 }
