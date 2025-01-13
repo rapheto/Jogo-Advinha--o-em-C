@@ -9,6 +9,8 @@ int main(){
     int numeroalt = 42;
     int chute;
     int tentativas = 1;
+    double pontos = 1000;
+
     while(1){
         printf("\nTentativa:%d", tentativas);
         printf("\nDigite um numero: ");
@@ -29,11 +31,16 @@ int main(){
         } 
         else if(maior){
             printf("\nVoce chutou %d, chutou alto!", chute);
+            double novapontuacao = (chute - numeroalt) / 2.0;
+            pontos = pontos - novapontuacao;
         } 
         else{
             printf("\nVoce chutou %d, chutou baixo!", chute);
+            double novapontuacao = (chute - numeroalt) / 2.0;
+            pontos = pontos + novapontuacao;
         }
         tentativas++;
     }  
     printf("\nFim de Jogo!");
+    printf("Sua pontuacao foi:%f!", pontos);
 }
