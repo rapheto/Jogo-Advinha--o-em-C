@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main(){
 
@@ -7,7 +8,17 @@ int main(){
     printf("-JOGO DA ADVINHACAO-");
     printf("\n--------------------");
 
-    int numeroalt = 42;
+    //Muda a seed no numero aleatorio (srand) fazendo com que o script
+    //crie um numero aleatorio diferente sempre que for iniciado
+    int tempo = time(0);
+    srand(tempo);
+
+    //gera um numero  aleatorio para a variavel
+    int numeroaleatoriogrande = rand();
+    //faz com o numero aleatorio sempre seja algum numero entre 1 e 99
+    numeroaleatoriogrande = numeroaleatoriogrande % 100;
+    
+    int numeroalt = numeroaleatoriogrande;
     int chute;
     int tentativas = 1;
     double pontos = 1000;
