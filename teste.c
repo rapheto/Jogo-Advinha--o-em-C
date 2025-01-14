@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
 
@@ -31,15 +32,13 @@ int main(){
         } 
         else if(maior){
             printf("\nVoce chutou %d, chutou alto!", chute);
-            double novapontuacao = (chute - numeroalt) / 2.0;
-            pontos = pontos - novapontuacao;
         } 
         else{
             printf("\nVoce chutou %d, chutou baixo!", chute);
-            double novapontuacao = (chute - numeroalt) / 2.0;
-            pontos = pontos + novapontuacao;
         }
         tentativas++;
+        double novapontuacao = (abs)(chute - numeroalt) / 2.0;
+        pontos = pontos - novapontuacao;
     }  
     printf("\nFim de Jogo!");
     printf("Sua pontuacao foi:%f!", pontos);
